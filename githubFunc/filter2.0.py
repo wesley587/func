@@ -27,6 +27,7 @@ import requests
 url = 'https://github.com/BC-SECURITY/Empire/blob/a58e0a5e608b1ebed5f81d8018105d020735db89/data/module_source/situational_awareness/network/powerview.ps1'
 resp = requests.get(url)
 soup = BeautifulSoup(resp.content, 'html.parser')
-a = soup.find_all('span', {'class': 'pl-en'})
-for x in a:
-    print(x.text)
+funcs = soup.find_all('span', {'class': 'pl-en'})
+func_names = list()
+for x in funcs:
+    func_names.append(x.text)
